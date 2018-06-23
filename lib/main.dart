@@ -10,6 +10,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: 'Startup Name Generator',
+      theme: new ThemeData( //https://docs.flutter.io/flutter/material/ThemeData-class.html
+        //primaryColor: Colors.white,
+        scaffoldBackgroundColor: Colors.white
+      ),
       home: new RandomWords(),
     );
   }
@@ -21,7 +25,7 @@ class RandomWords extends StatefulWidget {
 }
 
 class RandomWordsState extends State<RandomWords> {
-  
+
   final List<WordPair> _suggestions = <WordPair>[];
   final Set<WordPair> _saved = new Set<WordPair>();
   final TextStyle _biggerFont = const TextStyle(fontSize: 18.0);
@@ -50,6 +54,7 @@ class RandomWordsState extends State<RandomWords> {
           return new Scaffold(
             appBar: new AppBar(
               title: const Text('Saved Suggestions'),
+              backgroundColor: Colors.red,
             ),
             body: new ListView(
                 padding: const EdgeInsets.all(_paddingForListView),
@@ -65,6 +70,7 @@ class RandomWordsState extends State<RandomWords> {
     return new Scaffold(
       appBar: new AppBar(
         title: const Text('Startup Name Generator'),
+        backgroundColor: Colors.blue,
         actions: <Widget>[
           new IconButton(
             icon: const Icon(Icons.list),
